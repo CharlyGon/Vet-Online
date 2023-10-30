@@ -3,11 +3,9 @@ import { menuVeterinarias } from "./src/menu/menuVeterinaria";
 import * as readline from 'readline';
 import { GestorVeterinarias } from "./src/servicio/gestor";
 
-const gestor = new GestorVeterinarias();
-
-
+const gestor = new GestorVeterinarias()
+gestor.agregarVeterinaria(null, 'Veterinaria 1', 'Calle 1');
 gestor.altaCliente('Juan', '123456789', false, 0, 1);
-
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -25,10 +23,9 @@ export const menuPrincipal = () => {
     rl.question('Selecciona una opción: ', (opcion) => {
         switch (opcion) {
             case '1':
-                menuVeterinarias(rl); // Entrar en el menú de veterinarias
+                menuVeterinarias(rl, gestor); // Entrar en el menú de veterinarias
                 break;
             case '2':
-                console.log('Opción no disponible aún.');
                 menuClientes(rl, gestor); // Volver al menú principal
                 break;
             case '3':
@@ -36,7 +33,6 @@ export const menuPrincipal = () => {
                 menuPrincipal(); // Volver al menú principal
                 break;
             case '4':
-                console.log('Opción no disponible aún.');
                 menuPrincipal(); // Volver al menú principal
                 break;
             case '9':
