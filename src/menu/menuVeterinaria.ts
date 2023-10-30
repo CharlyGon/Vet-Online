@@ -6,8 +6,8 @@ export const menuVeterinarias = (rl: readline.Interface, gestor: GestorVeterinar
     console.log('\n--- Menú de Administración de Veterinarias ---');
     console.log('1. Listar Veterinarias');
     console.log('2. Agregar Veterinaria');
-    console.log('3. Dar de Baja Veterinaria');
-    console.log('4. Modificar Veterinaria');
+    console.log('3. Modificar Veterinaria');
+    console.log('4. Dar de Baja Veterinaria');
     console.log('9. Volver al Menú Principal');
 
     rl.question('Selecciona una opción: ', (opcion) => {
@@ -22,29 +22,18 @@ export const menuVeterinarias = (rl: readline.Interface, gestor: GestorVeterinar
                         console.log(`ID: ${veterinaria.id}, Nombre: ${veterinaria.nombre}, Dirección: ${veterinaria.dirección}`);
                     });
                 }
-                menuVeterinarias(rl, gestor); // Volver al menú de veterinarias
+                menuVeterinarias(rl, gestor);
                 break;
             case '2':
                 rl.question('Nombre de la veterinaria: ', (nombre) => {
                     rl.question('Dirección de la veterinaria: ', (direccion) => {
-                        const nuevaVeterinaria = gestor.agregarVeterinaria(null, nombre, direccion); // Pasa null como ID
+                        const nuevaVeterinaria = gestor.altaVeterinaria(null, nombre, direccion); // Pasa null como ID
                         console.log('Veterinaria agregada con éxito.', nuevaVeterinaria);
                         menuVeterinarias(rl, gestor);
                     });
                 });
                 break;
             case '3':
-                rl.question('ID de la veterinaria a dar de baja: ', (id) => {
-                    const idNumber = parseInt(id, 10);
-                    if (!isNaN(idNumber)) {
-                        gestor.eliminarVeterinaria(idNumber);
-                    } else {
-                        console.log('ID no válido. Debe ser un número.');
-                    }
-                    menuVeterinarias(rl, gestor);
-                });
-                break;
-            case '4':
                 rl.question('ID de la veterinaria a modificar: ', (id) => {
                     const idNumber = parseInt(id, 10);
                     if (!isNaN(idNumber)) {
@@ -66,6 +55,17 @@ export const menuVeterinarias = (rl: readline.Interface, gestor: GestorVeterinar
                         console.log('ID no válido. Debe ser un número.');
                         menuVeterinarias(rl, gestor);
                     }
+                });
+                break;
+            case '4':
+                rl.question('ID de la veterinaria a dar de baja: ', (id) => {
+                    const idNumber = parseInt(id, 10);
+                    if (!isNaN(idNumber)) {
+                        gestor.bajaVeterinaria(idNumber);
+                    } else {
+                        console.log('ID no válido. Debe ser un número.');
+                    }
+                    menuVeterinarias(rl, gestor);
                 });
                 break;
             case '9':
