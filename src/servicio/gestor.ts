@@ -39,13 +39,13 @@ export class GestorVeterinarias {
             } else {
                 return GestorVeterinarias.clientes.find((cliente) => cliente.id === id);
             }
+        }
+
+        // Si no se proporciona un ID de cliente, devuelve una lista de todos los clientes
+        if (veterinariaId) {
+            return GestorVeterinarias.clientes.filter((cliente) => cliente.veterinariaId === veterinariaId);
         } else {
-            // Si no se proporciona un ID de cliente, devuelve una lista de todos los clientes
-            if (veterinariaId) {
-                return GestorVeterinarias.clientes.filter((cliente) => cliente.veterinariaId === veterinariaId);
-            } else {
-                return GestorVeterinarias.clientes;
-            }
+            return GestorVeterinarias.clientes;
         }
     }
 
@@ -87,14 +87,15 @@ export class GestorVeterinarias {
             } else {
                 return GestorVeterinarias.pacientes.find((paciente) => paciente.id === id);
             }
-        } else {
-            // Si no se proporciona un ID de paciente, devuelve una lista de todos los pacientes
-            if (veterinariaId) {
-                return GestorVeterinarias.pacientes.filter((paciente) => paciente.idVeterinaria === veterinariaId);
-            } else {
-                return GestorVeterinarias.pacientes;
-            }
         }
+
+        // Si no se proporciona un ID de paciente, devuelve una lista de todos los pacientes
+        if (veterinariaId) {
+            return GestorVeterinarias.pacientes.filter((paciente) => paciente.idVeterinaria === veterinariaId);
+        } else {
+            return GestorVeterinarias.pacientes;
+        }
+
     }
 
     altaPaciente(id: number | null, nombre: string, nuevaEspecie: string, peso: string, sexo: string, color: string, idVeterinaria: number, idCliente: number) {
@@ -139,14 +140,15 @@ export class GestorVeterinarias {
             } else {
                 return GestorVeterinarias.proveedores.find((proveedor) => proveedor.id === id);
             }
-        } else {
-            // Si no se proporciona un ID de proveedor, devuelve una lista de todos los proveedores
-            if (veterinariaId) {
-                return GestorVeterinarias.proveedores.filter((proveedor) => proveedor.veterinariaId === veterinariaId);
-            } else {
-                return GestorVeterinarias.proveedores;
-            }
         }
+
+        // Si no se proporciona un ID de proveedor, devuelve una lista de todos los proveedores
+        if (veterinariaId) {
+            return GestorVeterinarias.proveedores.filter((proveedor) => proveedor.veterinariaId === veterinariaId);
+        } else {
+            return GestorVeterinarias.proveedores;
+        }
+
     }
 
     altaProveedor(id: number | null, nombre: string, direccion: string, telefono: string, veterinariaId: number) {

@@ -14,7 +14,7 @@ export const menuClientes = (rl: readline.Interface, gestor: GestorVeterinarias)
     rl.question('Selecciona una opción: ', (opcion) => {
         switch (opcion) {
             case '1':
-                const clientes = gestor.getClientes(null) || [];
+                const clientes = gestor.getClientes(null) ?? [];
                 console.log('Clientes:');
 
                 if (Array.isArray(clientes)) {
