@@ -1,12 +1,65 @@
-Nuestro cliente es una red de veterinarias y desea poder acceder a la siguiente información:
-● Sucursales de Veterinarias
-● Clientes
-● Pacientes (mascotas)
-● Proveedores CFS
-● Veterinarias: nombre, dirección, id (un número generado aleatoriamente al momento del alta) La red debe tener la posibilidad de dar de alta, modificar datos o dar de baja las mismas.
-● Clientes: nombre, teléfono, si es VIP (cliente recurrente, en el cual se guarda el número de visitas e incrementarlo cada vez que se realiza una consulta y para ser VIP tiene que tener 5 o mas) y un id (generado igual que los anteriores), las veterinarias deben contar con la opción de alta, baja y modificación de los mismos. CFS
-● Pacientes (mascotas): nombre, especie (si no es perro o gato, deberá registrarse como exótica), id del dueño, las veterinarias deben contar con la opción de alta, baja y modificación de los mismos.
-● Proveedores: nombre, teléfono y un id generado como los otros la red debe contar con la opción de alta, baja y modificación de los mismos.
-IMPORTANTE: los id deben ser únicos, por lo tanto al generarse, antes de guardarlos se debe validar que no exista. Si ya existe se debe volver a generar.
+# VeterinariaNet
 
-estop es una francquicia todos los clietes y pasientes se puede ver desde cualquier veterinaria.
+Bienvenido a VeterinariaNet, el sistema centralizado para la red de veterinarias. Este proyecto, desarrollado en TypeScript con Node.js, brinda a nuestra red la capacidad de gestionar información crucial sobre sucursales de veterinarias, clientes, pacientes (mascotas), y proveedores CFS.
+
+## Características
+
+### Sucursales de Veterinarias
+- **Datos:**
+  - Nombre
+  - Dirección
+  - ID (generado aleatoriamente al dar de alta)
+- **Operaciones:**
+  - Alta
+  - Modificación
+  - Baja
+
+### Clientes
+- **Datos:**
+  - Nombre
+  - Teléfono
+  - VIP (cliente recurrente)
+  - Número de visitas (incrementado con cada consulta para clientes VIP)
+  - ID (generado aleatoriamente al dar de alta)
+- **Operaciones:**
+  - Alta
+  - Modificación
+  - Baja
+
+### Pacientes (Mascotas)
+- **Datos:**
+  - Nombre
+  - Especie (registrada como exótica si no es perro o gato)
+  - ID del dueño
+- **Operaciones:**
+  - Alta
+  - Modificación
+  - Baja
+
+### Proveedores CFS
+- **Datos:**
+  - Nombre
+  - Teléfono
+  - ID (generado aleatoriamente al dar de alta)
+- **Operaciones:**
+  - Alta
+  - Modificación
+  - Baja
+
+## Funcionalidades Especiales
+- **ID Únicos:**
+  - Todos los ID generados son únicos. Antes de guardarlos, se valida su unicidad y se regeneran si es necesario.
+- **Visibilidad Global:**
+  - Todos los clientes y pacientes son visibles desde cualquier veterinaria de la red.
+
+## Instalación
+1. Clona este repositorio: `git clone https://github.com/CharlyGon/VeterinariaNet.git`
+2. Instala las dependencias: `npm install`
+
+## Uso
+1. Inicia la aplicación: `npm start`
+
+## Contribuciones
+¡Contribuciones son bienvenidas! Si encuentras problemas o deseas mejorar este proyecto, por favor abre un issue o envía un pull request.
+
+Gracias por ser parte de VeterinariaNet.

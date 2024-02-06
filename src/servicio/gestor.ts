@@ -5,11 +5,22 @@ import { Proveedor } from '../entidades/proveedor';
 
 type VeterinariaArray = Veterinaria[];
 
+interface Options {
+    id: number | null;
+    nombre: string;
+    nuevaEspecie: string;
+    peso: string;
+    sexo: string;
+    color: string;
+    idVeterinaria: number;
+    idCliente: number;
+}
+
 export class GestorVeterinarias {
-    public static veterinarias: VeterinariaArray = [];
-    public static clientes: Cliente[] = [];
-    public static pacientes: Paciente[] = [];
-    public static proveedores: Proveedor[] = [];
+    public static readonly veterinarias: VeterinariaArray = [];
+    public static readonly clientes: Cliente[] = [];
+    public static readonly pacientes: Paciente[] = [];
+    public static readonly proveedores: Proveedor[] = [];
 
     getVeterinaria(id: number) {
         return GestorVeterinarias.veterinarias.find(veterinaria => veterinaria.id === id);
@@ -98,7 +109,9 @@ export class GestorVeterinarias {
 
     }
 
-    altaPaciente(id: number | null, nombre: string, nuevaEspecie: string, peso: string, sexo: string, color: string, idVeterinaria: number, idCliente: number) {
+    altaPaciente(options: Options) {
+        const { id, nombre, nuevaEspecie, peso, sexo, color, idVeterinaria, idCliente } = options;
+
         let especie: string;
         if (nuevaEspecie === 'perro' || nuevaEspecie === 'gato') {
             especie = nuevaEspecie;

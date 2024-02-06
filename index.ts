@@ -8,7 +8,7 @@ import { menuProveedores } from "./src/menu/menuProveedores";
 const gestor = new GestorVeterinarias()
 gestor.altaVeterinaria(null, 'Veterinaria 1', 'Calle 1');
 gestor.altaCliente('Juan', '123456789', false, 0, 1);
-gestor.altaPaciente(null, 'Tomy', 'langosta', "10kg", 'Macho', 'Color 1', 1, 1);
+gestor.altaPaciente({id:null, nombre:'Tomy', nuevaEspecie:'langosta', peso:"10kg", sexo:'Macho', color:'Color 1', idVeterinaria:1, idCliente:1});
 gestor.altaProveedor(null, 'Proveedor 1', 'Calle 1', '123456789', 1);
 
 const rl = readline.createInterface({

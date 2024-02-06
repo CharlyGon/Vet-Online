@@ -31,7 +31,7 @@ export const menuPacientes = (rl: readline.Interface, gestor: GestorVeterinarias
                                 rl.question('Color del paciente: ', (color) => {
                                     rl.question('ID de la veterinaria: ', (idVeterinaria) => {
                                         rl.question('ID del cliente: ', (idCliente) => {
-                                            const nuevoPaciente = gestor.altaPaciente(null, nombre, especie, peso, sexo, color, parseInt(idVeterinaria), parseInt(idCliente)); // Pasa null como ID
+                                            const nuevoPaciente = gestor.altaPaciente({ id: null, nombre: nombre, nuevaEspecie: especie, peso: peso, sexo: sexo, color: color, idVeterinaria: parseInt(idVeterinaria), idCliente: parseInt(idCliente) }); // Pasa null como ID
                                             console.log('Paciente agregado con éxito.', nuevoPaciente);
                                             menuPacientes(rl, gestor);
                                         });
