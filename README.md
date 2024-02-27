@@ -1,6 +1,6 @@
-# VeterinariaNet
+# VetOnline
 
-Bienvenido a VeterinariaNet, el sistema centralizado para la red de veterinarias. Este proyecto, desarrollado en TypeScript con Node.js, brinda a nuestra red la capacidad de gestionar información crucial sobre sucursales de veterinarias, clientes, pacientes (mascotas), y proveedores CFS.
+Bienvenido a VetOnline, el sistema centralizado para la red de veterinarias. Este proyecto, desarrollado en TypeScript con Node.js, brinda a nuestra red la capacidad de gestionar información crucial sobre sucursales de veterinarias, clientes, pacientes (mascotas), y proveedores CFS.
 
 ## Características
 
